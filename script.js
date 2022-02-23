@@ -7,7 +7,7 @@ try {
 // Write your JavaScript code here!
 window.addEventListener("load", function() {
 
-    // this.document.getElementById("faultyItems").style.visibility = "hidden";
+    this.document.getElementById("faultyItems").style.visibility = "hidden";
 
     let form = document.querySelector("form");
     form.addEventListener("submit", function(event) {
@@ -21,7 +21,7 @@ window.addEventListener("load", function() {
 
      formSubmission(doc, list, pilotName, copilotName, fuelLevel, cargoLevel)
      updateList(fuelLevel,cargoLevel)
-    //  this.document.getElementById("faultyItems").style.visibility = "visible";
+     
        
     });
  });
