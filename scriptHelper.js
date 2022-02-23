@@ -71,32 +71,32 @@ function isValidInput(data, input){
 }
 
 function updateList(fuel, cargo) {
-    
+    document.getElementById("faultyItems").style.visibility= "visible";
     let pilotName = document.querySelector("input[name=pilotName]").value;
        let copilotName = document.querySelector("input[name=copilotName]").value;
     document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
     document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
     if(fuel < 10000){
-        document.getElementById("faultyItems").style.visibility= "visible";
+        // document.getElementById("faultyItems").style.visibility= "visible";
       document.getElementById("fuelStatus").innerHTML =  "Fuel level too low for launch";
       document.getElementById("launchStatus").innerHTML =  "Shuttle not ready for launch";
       document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)"
     } else {
         
         document.getElementById("launchStatus").innerHTML =  "Shuttle is ready for launch"
-        document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
-    document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
+    //     document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotName} is ready for launch`;
+    // document.getElementById("copilotStatus").innerHTML = `Copilot ${copilotName} is ready for launch`;
     }
     if (cargo > 10000){
-        document.getElementById("faultyItems").style.visibility= "visible";
+        // document.getElementById("faultyItems").style.visibility= "visible";
       document.getElementById("cargoStatus").innerHTML =  "Cargo mass too high for launch";
       document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
       document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
     }else {
         document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
         document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)"
-        document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
-    document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
+    //     document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
+    // document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
     }
 
 }
