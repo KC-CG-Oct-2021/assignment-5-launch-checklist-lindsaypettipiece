@@ -21,6 +21,7 @@ window.addEventListener("load", function() {
 
      formSubmission(doc, list, pilotName, copilotName, fuelLevel, cargoLevel)
      updateList(fuelLevel,cargoLevel)
+     this.document.getElementById("faultyItems").style.visibility = "visible";
        
     });
  });
