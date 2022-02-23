@@ -82,6 +82,8 @@ function updateList(fuel, cargo) {
       document.getElementById("launchStatus").style.color = "red"
     } else {
         document.getElementById("launchStatus").innerHTML =  "Shuttle is ready for launch"
+        document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
+    document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
     }
     if (cargo > 10000){
       document.getElementById("faultyItems").style.visibility= "visible";
@@ -91,6 +93,8 @@ function updateList(fuel, cargo) {
     }else {
         document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
         document.getElementById("launchStatus").style.color = "green"
+        document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
+    document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
     }
 
 }
@@ -98,15 +102,20 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        console.log(response)
+    if(response.status >= 400){
+        throw new Error("bad response")
+    } else {
+    console.log(response)
         return response.json()
+    }
 });
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
-    let planets = math.random(planetsReturned)
+    let index = math.floor(math.random()*planets.length)
+    return planets[index]
 }
 
 

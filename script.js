@@ -1,5 +1,5 @@
 try {
-    const { formSubmission } = require("./scriptHelper");
+    const { formSubmission, myFetch } = require("./scriptHelper");
 } catch(error){
 
 }
@@ -24,7 +24,7 @@ window.addEventListener("load", function() {
 
  
    let listedPlanets;
-   let listedPlanetsResponse = response.json()
+   let listedPlanetsResponse = myFetch()
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    listedPlanetsResponse.then(function (result) {
        listedPlanets = result;
