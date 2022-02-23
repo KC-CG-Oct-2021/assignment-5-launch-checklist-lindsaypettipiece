@@ -71,22 +71,24 @@ function isValidInput(data, input){
 }
 
 function updateList(fuel, cargo) {
+    document.getElementById("faultyItems").style.visibility= "visible";
     let pilotName = document.querySelector("input[name=pilotName]").value;
        let copilotName = document.querySelector("input[name=copilotName]").value;
     document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
     document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
     if(fuel < 10000){
-      document.getElementById("faultyItems").style.visibility= "visible";
+      
       document.getElementById("fuelStatus").innerHTML =  "Fuel level too low for launch";
       document.getElementById("launchStatus").innerHTML =  "Shuttle not ready for launch";
       document.getElementById("launchStatus").style.color = "red"
     } else {
+       
         document.getElementById("launchStatus").innerHTML =  "Shuttle is ready for launch"
         document.getElementById("pilotStatus").innerHTML = `${pilotName} is ready for launch`;
     document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`;
     }
     if (cargo > 10000){
-      document.getElementById("faultyItems").style.visibility= "visible";
+      
       document.getElementById("cargoStatus").innerHTML =  "Cargo mass too high for launch";
       document.getElementById("launchStatus").style.color = "red";
       document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
@@ -114,7 +116,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-    let index = math.floor(math.random()*planets.length)
+    let index = Math.floor(math.random()*planets.length)
     return planets[index]
 }
 
