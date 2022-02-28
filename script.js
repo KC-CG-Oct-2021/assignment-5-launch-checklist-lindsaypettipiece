@@ -1,5 +1,5 @@
 try {
-    const { formSubmission, myFetch } = require("./scriptHelper");
+    const { formSubmission, myFetch, addDestinationInfo, pickPlanet, validateInput } = require("./scriptHelper");
 } catch(error){
 
 }
@@ -20,11 +20,12 @@ window.addEventListener("load", function() {
        let cargoLevel = document.querySelector("input[name=cargoLevel]").value;
 
      formSubmission(doc, list, pilotName, copilotName, fuelLevel, cargoLevel)
-     updateList(fuelLevel,cargoLevel)
+     validateInput()
+     
      
        
     });
- });
+
 
  
    let listedPlanets;
@@ -35,6 +36,9 @@ window.addEventListener("load", function() {
        console.log(listedPlanets);
    }).then(function () {
        console.log(listedPlanets);
+       let selectedPlanet = pickPlanet(listedPlanets);
+       addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image)
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
    })
    
+});
